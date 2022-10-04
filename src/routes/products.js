@@ -28,10 +28,10 @@ router.get("/products/:id", (req, res) => {
     .catch((error) => res.json({ message: error }));
 });
 
-router.get("/products/:name", (req, res) => {
+router.get("/products/name/:name", (req, res) => {
   const { name } = req.params;
   productSchema
-    .find(name)
+    .findOne({name: name})
     .then((data) => res.json(data))
     .catch((error) => res.json({ message: error }));
 });

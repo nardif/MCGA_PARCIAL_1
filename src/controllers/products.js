@@ -62,7 +62,7 @@ const getProductsById = async (req, res) => {
  // Método: para conseguir un producto por name
  const getProductsByName = async (req, res) => {
     try{
-        const response = await schemacProducts.find({ name: req.params.name})
+        const response = await schemacProducts.findOne(req.params.name, req.body)
 
         if(!response || response.length === 0){
             return res.status(404).json({
